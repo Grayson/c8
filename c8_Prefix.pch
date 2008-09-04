@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'c8' target in the 'c8' project.
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif
