@@ -292,6 +292,7 @@
 								<string>1D0EED300E7020B0003A895A</string>
 								<string>1D0EED310E7020B0003A895A</string>
 								<string>1C37FAAC04509CD000000102</string>
+								<string>1C08E77C0454961000C914BD</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
@@ -524,7 +525,7 @@
 	<key>StatusbarIsVisible</key>
 	<true/>
 	<key>TimeStamp</key>
-	<real>242243675.16071901</real>
+	<real>242252206.839524</real>
 	<key>ToolbarDisplayMode</key>
 	<integer>1</integer>
 	<key>ToolbarIsVisible</key>
@@ -634,7 +635,7 @@
 			<key>WindowToolGUID</key>
 			<string>1D0EECED0E701EEB003A895A</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

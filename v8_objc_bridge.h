@@ -14,4 +14,5 @@
 BOOL v8_objc_bridge_init(v8::Handle<v8::ObjectTemplate> global);
 
 v8::Handle<v8::Value> FetchObjCClass(const v8::Arguments& args);
-v8::Handle<v8::ObjectTemplate> CallObjCClassMethod(const v8::Arguments& args);
+v8::Handle<v8::Value> CallObjCClassMethod(const v8::Arguments& args);
+v8::Handle<v8::ObjectTemplate> ConvertClassToTemplate(Class c);
