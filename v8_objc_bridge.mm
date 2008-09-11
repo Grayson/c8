@@ -27,11 +27,11 @@ v8::Handle<v8::Value> FetchObjCClass(const v8::Arguments& args) {
 	v8::Handle<v8::ObjectTemplate> class_templ = ConvertClassToTemplate(c);
 	v8::Handle<v8::Object> result = class_templ->NewInstance();
 	result->Set(v8::String::New("className"), v8::String::New([arg UTF8String]));
-	// v8::Handle<v8::External> ptr = v8::External::New(c);
+	v8::Handle<v8::External> ptr = v8::External::New(c);
 	
-	// NSLog(@"%d %d", class_templ->InternalFieldCount(), result->InternalFieldCount());
-
-	// result->SetInternalField(0, ptr);
+	NSLog(@"%d %d", class_templ->InternalFieldCount(), result->InternalFieldCount());
+	
+	result->SetInternalField(0, ptr);
 	
 	return result;
 }
@@ -45,25 +45,29 @@ v8::Handle<v8::Value> CallObjCClassMethod(const v8::Arguments& args) {
 	
 	NSLog(@"This: %s", *str);
 	NSLog(@"%d", obj->InternalFieldCount());
+	v8::Local<v8::External> ptr = v8::Local<v8::External>::Cast(obj->GetInternalField(0));
+	Class c = (Class)ptr->Value();
+	NSLog(@"!!%@", NSStringFromClass(c));
 	
 	v8::Handle<v8::Value> value = obj->Get(v8::String::New("className"));
 	v8::String::AsciiValue str5(value->ToString());
 	NSString *className = [NSString stringWithUTF8String:*str5];
 	
-	NSLog(@"[%@ ]", className);
 	
 	v8::Local<v8::Function> func = args.Callee();
 	v8::String::AsciiValue str3(func->ToString());
 	NSLog(@"Callee: %s", *str3);
 	
 	v8::Local<v8::Value> data = args.Data();
-	v8::String::AsciiValue str2(data->ToString());
+	v8::String::AsciiValue str2(data);
+	NSString *methodName = [NSString stringWithUTF8String:*str2];
 	NSLog(@"Data: %s", *str2);
 
 	v8::Local<v8::Value> holder = args.Holder();
 	v8::String::AsciiValue str4(holder->ToString());
 	NSLog(@"Holder: %s", *str4);
 
+	NSLog(@"[%@ %@]", className, methodName);
 
 	
 	for(size_t i = 0; i < args.Length(); ++i)
@@ -74,10 +78,27 @@ v8::Handle<v8::Value> CallObjCClassMethod(const v8::Arguments& args) {
 	return v8::Undefined();
 }
 
+v8::Handle<v8::Value> GetObjCClass(v8::Local<v8::String> property, const v8::AccessorInfo& info) {
+	NSLog(@"GetObjCClass");
+	v8::Local<v8::Object> self = info.Holder();
+	v8::Local<v8::External> wrap = v8::Local<v8::External>::Cast(self->GetInternalField(0));
+	void* ptr = wrap->Value();
+	return v8::String::New([NSStringFromClass((Class)ptr) UTF8String]);
+}
+
+void SetObjCClass(v8::Local<v8::String> property, v8::Local<v8::Value> value, const v8::AccessorInfo& info) {
+}
+
 v8::Handle<v8::ObjectTemplate> ConvertClassToTemplate(Class c) {
 	v8::HandleScope handle_scope;
 	v8::Handle<v8::ObjectTemplate> class_templ = v8::ObjectTemplate::New();
 	class_templ->SetInternalFieldCount(1);
+	class_templ->SetAccessor(v8::String::New("objc_class"),
+	 	GetObjCClass, 
+		SetObjCClass, 
+		v8::String::New("?"), 
+		v8::DEFAULT,
+		v8::None);//, nil, v8::DEFAULT, v8::None);
 	NSArray *methods = [c classMethods];
 	NSEnumerator *methodEnumerator = [methods objectEnumerator];
 	NSString *method;
@@ -88,7 +109,7 @@ v8::Handle<v8::ObjectTemplate> ConvertClassToTemplate(Class c) {
 		[tmp replaceOccurrencesOfString:@"_" withString:@"$_" options:0 range:NSMakeRange(0, [tmp length])];
 		[tmp replaceOccurrencesOfString:@":" withString:@"_" options:0 range:NSMakeRange(0, [tmp length])];
 		
-		class_templ->Set(v8::String::New([tmp UTF8String]), v8::FunctionTemplate::New(CallObjCClassMethod));
+		class_templ->Set(v8::String::New([tmp UTF8String]), v8::FunctionTemplate::New(CallObjCClassMethod, v8::String::New([method UTF8String])));
 	}
 	
 	return handle_scope.Close(v8::Persistent<v8::ObjectTemplate>::New(class_templ));

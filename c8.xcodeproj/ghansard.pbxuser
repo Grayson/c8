@@ -85,8 +85,19 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 242175794;
-			PBXWorkspaceStateSaveDate = 242175794;
+			PBXPerProjectTemplateStateSaveDate = 242832390;
+			PBXWorkspaceStateSaveDate = 242832390;
+		};
+		perUserProjectItems = {
+			1D5627180E795BFB005AAAA7 /* PBXTextBookmark */ = 1D5627180E795BFB005AAAA7 /* PBXTextBookmark */;
+			1D5627190E795BFB005AAAA7 /* PBXTextBookmark */ = 1D5627190E795BFB005AAAA7 /* PBXTextBookmark */;
+			1D56271A0E795BFB005AAAA7 /* PBXTextBookmark */ = 1D56271A0E795BFB005AAAA7 /* PBXTextBookmark */;
+			1D56271B0E795BFB005AAAA7 /* PBXTextBookmark */ = 1D56271B0E795BFB005AAAA7 /* PBXTextBookmark */;
+			1D56271C0E795BFB005AAAA7 /* PBXTextBookmark */ = 1D56271C0E795BFB005AAAA7 /* PBXTextBookmark */;
+			1D56271D0E795BFB005AAAA7 /* PBXTextBookmark */ = 1D56271D0E795BFB005AAAA7 /* PBXTextBookmark */;
+			1D56271E0E795BFB005AAAA7 /* PBXTextBookmark */ = 1D56271E0E795BFB005AAAA7 /* PBXTextBookmark */;
+			1D5627260E795DF6005AAAA7 /* PBXTextBookmark */ = 1D5627260E795DF6005AAAA7 /* PBXTextBookmark */;
+			1D5627270E795DF6005AAAA7 /* PBXTextBookmark */ = 1D5627270E795DF6005AAAA7 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 1D0EECDE0E6F4F3A003A895A /* Source Control */;
 		userBuildSettings = {
@@ -126,12 +137,129 @@
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
 	};
+	1D0EED280E702081003A895A /* v8.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {439, 32802}}";
+			sepNavSelRange = "{47153, 56}";
+			sepNavVisRange = "{46915, 638}";
+		};
+	};
 	1D0EED560E70262C003A895A /* v8_objc_bridge.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {439, 252}}";
-			sepNavSelRange = "{438, 63}";
-			sepNavVisRange = "{38, 463}";
+			sepNavIntBoundsRect = "{{0, 0}, {439, 280}}";
+			sepNavSelRange = "{593, 0}";
+			sepNavVisRange = "{83, 510}";
 		};
+	};
+	1D5627000E7958F1005AAAA7 /* v8_objc_bridge.mm */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.objcpp;
+		name = v8_objc_bridge.mm;
+		path = /Users/ghansard/Projects/c8/v8_objc_bridge.mm;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {439, 1498}}";
+			sepNavSelRange = "{3747, 0}";
+			sepNavVisRange = "{3045, 617}";
+		};
+	};
+	1D56270C0E795A77005AAAA7 /* v8_objc_bridge.mm */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.objcpp;
+		name = v8_objc_bridge.mm;
+		path = /Users/ghansard/Projects/c8/v8_objc_bridge.mm;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {439, 1764}}";
+			sepNavSelRange = "{3988, 0}";
+			sepNavVisRange = "{2326, 423}";
+		};
+	};
+	1D5627180E795BFB005AAAA7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D0EED560E70262C003A895A /* v8_objc_bridge.h */;
+		name = "v8_objc_bridge.h: 19";
+		rLen = 0;
+		rLoc = 593;
+		rType = 0;
+		vrLen = 510;
+		vrLoc = 83;
+	};
+	1D5627190E795BFB005AAAA7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D0EED280E702081003A895A /* v8.h */;
+		name = "v8.h: 1526";
+		rLen = 56;
+		rLoc = 47153;
+		rType = 0;
+		vrLen = 638;
+		vrLoc = 46915;
+	};
+	1D56271A0E795BFB005AAAA7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error:   initializing argument 3 of 'void v8::ObjectTemplate::SetAccessor(v8::Handle<v8::String>, v8::Handle<v8::Value> (*)(v8::Local<v8::String>, const v8::AccessorInfo&), void (*)(v8::Local<v8::String>, v8::Local<v8::Value>, const v8::AccessorInfo&), v8::Handle<v8::Value>, v8::AccessControl, v8::PropertyAttribute)'";
+		fRef = 1D56270C0E795A77005AAAA7 /* v8_objc_bridge.mm */;
+		rLen = 1;
+		rLoc = 96;
+		rType = 1;
+	};
+	1D56271B0E795BFB005AAAA7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D0EED560E70262C003A895A /* v8_objc_bridge.h */;
+		name = "v8_objc_bridge.h: 19";
+		rLen = 0;
+		rLoc = 593;
+		rType = 0;
+		vrLen = 510;
+		vrLoc = 83;
+	};
+	1D56271C0E795BFB005AAAA7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D5627000E7958F1005AAAA7 /* v8_objc_bridge.mm */;
+		name = "v8_objc_bridge.mm: 107";
+		rLen = 0;
+		rLoc = 3747;
+		rType = 0;
+		vrLen = 617;
+		vrLoc = 3045;
+	};
+	1D56271D0E795BFB005AAAA7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D0EED280E702081003A895A /* v8.h */;
+		name = "v8.h: 1526";
+		rLen = 56;
+		rLoc = 47153;
+		rType = 0;
+		vrLen = 638;
+		vrLoc = 46915;
+	};
+	1D56271E0E795BFB005AAAA7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D56270C0E795A77005AAAA7 /* v8_objc_bridge.mm */;
+		name = "v8_objc_bridge.mm: 112";
+		rLen = 0;
+		rLoc = 3831;
+		rType = 0;
+		vrLen = 594;
+		vrLoc = 3006;
+	};
+	1D5627260E795DF6005AAAA7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: 'class v8::Local<v8::Value>' has no member named 'Value'";
+		fRef = 1D56270C0E795A77005AAAA7 /* v8_objc_bridge.mm */;
+		rLen = 1;
+		rLoc = 48;
+		rType = 1;
+	};
+	1D5627270E795DF6005AAAA7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D56270C0E795A77005AAAA7 /* v8_objc_bridge.mm */;
+		name = "v8_objc_bridge.mm: 115";
+		rLen = 0;
+		rLoc = 3988;
+		rType = 0;
+		vrLen = 423;
+		vrLoc = 2326;
 	};
 	8DD76F960486AA7600D96B5E /* c8 */ = {
 		activeExec = 0;

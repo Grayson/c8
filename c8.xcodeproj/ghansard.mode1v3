@@ -250,6 +250,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -289,20 +291,17 @@
 								<string>08FB7795FE84155DC02AAC07</string>
 								<string>08FB779DFE84155DC02AAC07</string>
 								<string>1C37FBAC04509CD000000102</string>
-								<string>1D0EED300E7020B0003A895A</string>
-								<string>1D0EED310E7020B0003A895A</string>
 								<string>1C37FAAC04509CD000000102</string>
-								<string>1C08E77C0454961000C914BD</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>27</integer>
+									<integer>20</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 240}, {186, 338}}</string>
+							<string>{{0, 121}, {186, 338}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -366,8 +365,6 @@
 							<string>0pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -404,9 +401,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>1D0EECEA0E701EEB003A895A</string>
+				<string>1D5626E60E79540E005AAAA7</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>1D0EECEB0E701EEB003A895A</string>
+				<string>1D5626E70E79540E005AAAA7</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -525,7 +522,7 @@
 	<key>StatusbarIsVisible</key>
 	<true/>
 	<key>TimeStamp</key>
-	<real>242252206.839524</real>
+	<real>242834936.47869301</real>
 	<key>ToolbarDisplayMode</key>
 	<integer>1</integer>
 	<key>ToolbarIsVisible</key>
@@ -540,7 +537,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>1D0EECED0E701EEB003A895A</string>
 		<string>/Users/ghansard/Projects/c8/c8.xcodeproj</string>
 	</array>
@@ -624,7 +620,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1D0EECED0E701EEB003A895A</string>
-				<string>1D0EECEE0E701EEB003A895A</string>
+				<string>1D5626EB0E79567E005AAAA7</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -635,7 +631,7 @@
 			<key>WindowToolGUID</key>
 			<string>1D0EECED0E701EEB003A895A</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>
