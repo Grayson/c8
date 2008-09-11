@@ -7,9 +7,10 @@
  *
  */
 
+#include "v8.h"
 #import <Foundation/Foundation.h>
 #import "NSObject+bridge.h"
-#include "v8.h"
+#import "JSObjects.h"
 
 BOOL v8_objc_bridge_init(v8::Handle<v8::ObjectTemplate> global);
 

@@ -24,15 +24,6 @@ v8::Handle<v8::Value> FetchObjCClass(const v8::Arguments& args) {
 	NSString *arg = [NSString stringWithUTF8String:*str];
 	Class c = NSClassFromString(arg);
 	return ConvertClassToTemplate(c);
-	
-	// v8::Handle<v8::ObjectTemplate> class_templ = ConvertClassToTemplate(c);
-	// v8::Handle<v8::Object> result = class_templ->NewInstance();
-	// result->Set(v8::String::New("className"), v8::String::New([arg UTF8String]));
-	// v8::Handle<v8::External> ptr = v8::External::New(c);
-	// 
-	// result->SetInternalField(0, ptr);
-	// 	
-	// return result;
 }
 
 v8::Handle<v8::Value> CallObjCClassMethod(const v8::Arguments& args) {	
@@ -62,49 +53,32 @@ v8::Handle<v8::Value> CallObjCClassMethod(const v8::Arguments& args) {
 }
 
 v8::Handle<v8::Value> CallObjCInstanceMethod(const v8::Arguments& args) {
-	NSLog(@"CallObjCInstanceMethod");
-	
-	v8::Local<v8::Object> obj = args.This();
-	v8::String::AsciiValue str(obj->ToString());
-	// v8::Local<v8::String> str = obj->ObjectProtoToString();
-	
-	NSLog(@"This: %s", *str);
-	NSLog(@"%d", obj->InternalFieldCount());
-	v8::Local<v8::External> ptr = v8::Local<v8::External>::Cast(obj->GetInternalField(0));
-	id objc = (id)ptr->Value();
-	NSLog(@"!!%@", NSStringFromClass([objc class]));
-	
-	v8::Handle<v8::Value> value = obj->Get(v8::String::New("className"));
-	v8::String::AsciiValue str5(value->ToString());
-	NSString *className = [NSString stringWithUTF8String:*str5];
-	
-	
-	v8::Local<v8::Function> func = args.Callee();
-	v8::String::AsciiValue str3(func->ToString());
-	NSLog(@"Callee: %s", *str3);
+	v8::Local<v8::Object> tmp = args.This();
+	v8::Local<v8::External> ptr = v8::Local<v8::External>::Cast(tmp->GetInternalField(0));
 	
 	v8::Local<v8::Value> data = args.Data();
-	v8::String::AsciiValue str2(data);
-	NSString *methodName = [NSString stringWithUTF8String:*str2];
-	NSLog(@"Data: %s", *str2);
+	v8::String::AsciiValue str(data);
 
-	v8::Local<v8::Value> holder = args.Holder();
-	v8::String::AsciiValue str4(holder->ToString());
-	NSLog(@"Holder: %s", *str4);
-
-	NSLog(@"[%@ %@]", className, methodName);
-
+ 	id obj = (id)ptr->Value();
+	NSString *methodName = [NSString stringWithUTF8String:*str];
+	SEL selector = NSSelectorFromString(methodName);
 	
+	NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[obj methodSignatureForSelector:selector]];
+	[invocation setTarget:obj];
+	[invocation setSelector:selector];
 	for(size_t i = 0; i < args.Length(); ++i)
 	{
-		v8::String::AsciiValue str(args[i]);
-		NSLog(@"Arg %d: %s", i, *str);
+		id arg = ConvertV8ValueToObjCObject(args[i]);
+		[invocation setArgument:&arg atIndex:i+2];
 	}
-	return v8::Undefined();
+	[invocation invoke];
+	id ret;
+	[invocation getReturnValue:&ret];	
+	
+	return ConvertObjCObjectToV8Value(ret);
 }
 
 v8::Handle<v8::Value> GetObjCClass(v8::Local<v8::String> property, const v8::AccessorInfo& info) {
-	NSLog(@"GetObjCClass");
 	v8::Local<v8::Object> self = info.Holder();
 	v8::Local<v8::External> wrap = v8::Local<v8::External>::Cast(self->GetInternalField(0));
 	void* ptr = wrap->Value();
@@ -175,12 +149,10 @@ v8::Handle<v8::Value> ConvertObjectToTemplate(id obj) {
 	
 	result->SetInternalField(0, ptr);
 	
-	
 	return handle_scope.Close(result);
 }
 
 v8::Handle<v8::Value> GetRawObjCObject(v8::Local<v8::String> property, const v8::AccessorInfo& info) {
-	NSLog(@"GetObjCClass");
 	v8::Local<v8::Object> self = info.Holder();
 	v8::Local<v8::External> wrap = v8::Local<v8::External>::Cast(self->GetInternalField(0));
 	void* ptr = wrap->Value();
@@ -193,8 +165,26 @@ void SetRawObjCObject(v8::Local<v8::String> property, v8::Local<v8::Value> value
 id ConvertV8ValueToObjCObject(v8::Local<v8::Value> v8Obj) {
 	if (v8Obj->IsString()) {
 		v8::String::AsciiValue str(v8Obj);
-		NSLog(@"Argument: %s", *str);
 		return [NSString stringWithUTF8String:*str];
+	}
+	else if (v8Obj->IsNull()) return [NSNull null];
+	else if (v8Obj->IsTrue() || v8Obj->IsFalse()) return [NSNumber numberWithBool:v8Obj->IsTrue()];
+	else if (v8Obj->IsBoolean()) return [NSNumber numberWithBool:v8Obj->BooleanValue()];
+	else if (v8Obj->IsNumber()) return [NSNumber numberWithDouble:v8Obj->NumberValue()];
+	else if (v8Obj->IsInt32()) return [NSNumber numberWithLong:v8Obj->Int32Value()];
+	else if (v8Obj->IsArray()) {
+		NSMutableArray *array = [NSMutableArray array];
+		v8::Local<v8::Array> v8array = v8::Local<v8::Array>::Cast( v8Obj->ToObject() );
+		for(size_t i = 0; i < v8array->Length(); ++i)
+			[array addObject:ConvertV8ValueToObjCObject(v8array->Get(v8::Number::New(i)))];
+		return array;
+	}
+	else if (v8Obj->IsFunction()) {
+		v8::Local<v8::Function> func = v8::Local<v8::Function>::Cast( v8Obj->ToObject() );
+		return [JSFunction wrapperWithFunction:func receiver:v8Obj->ToObject()];
+	}
+	else if (v8Obj->IsExternal()) {
+		// Wrap external?
 	}
 	return nil;
 }
@@ -203,9 +193,16 @@ v8::Handle<v8::Value> ConvertObjCObjectToV8Value(id obj) {
 	if ([obj isKindOfClass:[NSString class]]) {
 		return v8::String::New([obj UTF8String]);
 	}
-	else {
-		
+	else if ([obj isKindOfClass:[NSNull class]]) return v8::Null();
+	else if ([obj isKindOfClass:[NSNumber class]]) return v8::Number::New([obj doubleValue]);
+	else if ([obj isKindOfClass:[NSArray class]]) {
+		v8::Local<v8::Array> array = v8::Array::New([obj count]);
+		NSEnumerator *objectEnumerator = [obj objectEnumerator];
+		id elem;
+		unsigned int i=0;
+		while (elem = [objectEnumerator nextObject])
+			array->Set(v8::Number::New(i++), ConvertObjCObjectToV8Value(elem));
+		return array;
 	}
-	
-	return v8::Undefined();
+	return ConvertObjectToTemplate(obj);
 }

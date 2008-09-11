@@ -11,6 +11,7 @@
 		1D0EED480E70215F003A895A /* libv8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0EED470E70215F003A895A /* libv8.a */; };
 		1D0EED580E70262C003A895A /* v8_objc_bridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D0EED570E70262C003A895A /* v8_objc_bridge.mm */; };
 		1D0EEDB60E702964003A895A /* NSObject+bridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0EEDB50E702964003A895A /* NSObject+bridge.m */; };
+		1D5627EB0E799EDB005AAAA7 /* JSObjects.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D5627EA0E799EDB005AAAA7 /* JSObjects.mm */; };
 		8DD76F9A0486AA7600D96B5E /* c8.mm in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* c8.mm */; settings = {ATTRIBUTES = (); }; };
 		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
 		8DD76F9F0486AA7600D96B5E /* c8.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* c8.1 */; };
@@ -40,6 +41,8 @@
 		1D0EED570E70262C003A895A /* v8_objc_bridge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = v8_objc_bridge.mm; sourceTree = "<group>"; };
 		1D0EEDB40E702964003A895A /* NSObject+bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+bridge.h"; sourceTree = "<group>"; };
 		1D0EEDB50E702964003A895A /* NSObject+bridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+bridge.m"; sourceTree = "<group>"; };
+		1D5627E90E799EDB005AAAA7 /* JSObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSObjects.h; sourceTree = "<group>"; };
+		1D5627EA0E799EDB005AAAA7 /* JSObjects.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JSObjects.mm; sourceTree = "<group>"; };
 		32A70AAB03705E1F00C91783 /* c8_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = c8_Prefix.pch; sourceTree = "<group>"; };
 		8DD76FA10486AA7600D96B5E /* c8 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = c8; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6859EA3029092ED04C91782 /* c8.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = c8.1; sourceTree = "<group>"; };
@@ -81,6 +84,8 @@
 				1D0EED570E70262C003A895A /* v8_objc_bridge.mm */,
 				1D0EEDB40E702964003A895A /* NSObject+bridge.h */,
 				1D0EEDB50E702964003A895A /* NSObject+bridge.m */,
+				1D5627E90E799EDB005AAAA7 /* JSObjects.h */,
+				1D5627EA0E799EDB005AAAA7 /* JSObjects.mm */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 				8DD76F9A0486AA7600D96B5E /* c8.mm in Sources */,
 				1D0EED580E70262C003A895A /* v8_objc_bridge.mm in Sources */,
 				1D0EEDB60E702964003A895A /* NSObject+bridge.m in Sources */,
+				1D5627EB0E799EDB005AAAA7 /* JSObjects.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
