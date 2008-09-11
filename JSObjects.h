@@ -11,8 +11,8 @@
 #import "v8_objc_bridge.h"
 
 @interface JSFunction : NSObject {
- 	v8::Local<v8::Function> _function;
-	v8::Local<v8::Object> _receiver;
+ 	v8::Local<v8::Function> *_function;
+	v8::Local<v8::Object> *_receiver;
 }
 
 + (id)wrapperWithFunction:(v8::Local<v8::Function>)function receiver:(v8::Local<v8::Object>)receiver;

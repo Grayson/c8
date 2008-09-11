@@ -21,22 +21,22 @@
 
 - (v8::Local<v8::Function>)function
 {
-	return _function;
+	return *_function;
 }
 
 - (void)setFunction:(v8::Local<v8::Function>)newFunction
 {
-	_function = newFunction;
+	_function = &newFunction;
 }
 
 - (v8::Local<v8::Object>)receiver
 {
-	return _receiver;
+	return *_receiver;
 }
 
 - (void)setReceiver:(v8::Local<v8::Object>)newReceiver
 {
-	_receiver = newReceiver;
+	_receiver = &newReceiver;
 }
 
 - (id)call:(id)firstArgument, ... {
@@ -58,7 +58,7 @@
 	unsigned int i = 0;
 	while (arg = [argEnumerator nextObject]) argv[i++] = ConvertObjCObjectToV8Value(arg);
 	
-	v8::Local<v8::Value> ret = _function->Call(_receiver, (int)[array count], argv);
+	v8::Local<v8::Value> ret = [self function]->Call([self receiver], (int)[array count], argv);
 	return ConvertV8ValueToObjCObject(ret);
 }
 

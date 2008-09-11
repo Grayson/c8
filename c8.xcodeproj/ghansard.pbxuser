@@ -125,6 +125,15 @@
 			1D5628320E79A52A005AAAA7 /* PBXTextBookmark */ = 1D5628320E79A52A005AAAA7 /* PBXTextBookmark */;
 			1D5628330E79A52A005AAAA7 /* PBXTextBookmark */ = 1D5628330E79A52A005AAAA7 /* PBXTextBookmark */;
 			1D5628340E79A52A005AAAA7 /* PBXTextBookmark */ = 1D5628340E79A52A005AAAA7 /* PBXTextBookmark */;
+			1D56284F0E79E157005AAAA7 /* PBXTextBookmark */ = 1D56284F0E79E157005AAAA7 /* PBXTextBookmark */;
+			1D5628500E79E157005AAAA7 /* PBXTextBookmark */ = 1D5628500E79E157005AAAA7 /* PBXTextBookmark */;
+			1D5628510E79E157005AAAA7 /* PBXTextBookmark */ = 1D5628510E79E157005AAAA7 /* PBXTextBookmark */;
+			1D5628520E79E157005AAAA7 /* PBXTextBookmark */ = 1D5628520E79E157005AAAA7 /* PBXTextBookmark */;
+			1D5628600E79E5CF005AAAA7 /* PBXTextBookmark */ = 1D5628600E79E5CF005AAAA7 /* PBXTextBookmark */;
+			1D5628610E79E5CF005AAAA7 /* PBXTextBookmark */ = 1D5628610E79E5CF005AAAA7 /* PBXTextBookmark */;
+			1D5628620E79E5CF005AAAA7 /* PBXTextBookmark */ = 1D5628620E79E5CF005AAAA7 /* PBXTextBookmark */;
+			1D5628630E79E5CF005AAAA7 /* PBXTextBookmark */ = 1D5628630E79E5CF005AAAA7 /* PBXTextBookmark */;
+			1D5628640E79E5CF005AAAA7 /* PBXTextBookmark */ = 1D5628640E79E5CF005AAAA7 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 1D0EECDE0E6F4F3A003A895A /* Source Control */;
 		userBuildSettings = {
@@ -670,6 +679,106 @@
 		rType = 0;
 		vrLen = 319;
 		vrLoc = 7149;
+	};
+	1D5628360E79B9B6005AAAA7 /* JavascriptEngine.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {439, 658}}";
+			sepNavSelRange = "{319, 41}";
+			sepNavVisRange = "{174, 273}";
+		};
+	};
+	1D5628370E79B9B6005AAAA7 /* JavascriptEngine.mm */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {439, 1470}}";
+			sepNavSelRange = "{2832, 0}";
+			sepNavVisRange = "{1323, 420}";
+		};
+	};
+	1D56284F0E79E157005AAAA7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D5628360E79B9B6005AAAA7 /* JavascriptEngine.h */;
+		name = "JavascriptEngine.h: 34";
+		rLen = 0;
+		rLoc = 828;
+		rType = 0;
+		vrLen = 466;
+		vrLoc = 362;
+	};
+	1D5628500E79E157005AAAA7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: conversion from 'v8::Local<v8::String>' to non-scalar type 'v8::String' requested";
+		fRef = 1D5628370E79B9B6005AAAA7 /* JavascriptEngine.mm */;
+		rLen = 1;
+		rLoc = 33;
+		rType = 1;
+	};
+	1D5628510E79E157005AAAA7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D5628360E79B9B6005AAAA7 /* JavascriptEngine.h */;
+		name = "JavascriptEngine.h: 34";
+		rLen = 0;
+		rLoc = 828;
+		rType = 0;
+		vrLen = 466;
+		vrLoc = 362;
+	};
+	1D5628520E79E157005AAAA7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D5628370E79B9B6005AAAA7 /* JavascriptEngine.mm */;
+		name = "JavascriptEngine.mm: 94";
+		rLen = 0;
+		rLoc = 2389;
+		rType = 0;
+		vrLen = 522;
+		vrLoc = 787;
+	};
+	1D5628600E79E5CF005AAAA7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D5628360E79B9B6005AAAA7 /* JavascriptEngine.h */;
+		name = "JavascriptEngine.h: 18";
+		rLen = 41;
+		rLoc = 319;
+		rType = 0;
+		vrLen = 272;
+		vrLoc = 175;
+	};
+	1D5628610E79E5CF005AAAA7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: no matching function for call to 'v8::String::AsciiValue::AsciiValue(const char*)'";
+		fRef = 1D5628370E79B9B6005AAAA7 /* JavascriptEngine.mm */;
+		rLen = 1;
+		rLoc = 59;
+		rType = 1;
+	};
+	1D5628620E79E5CF005AAAA7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D5628370E79B9B6005AAAA7 /* JavascriptEngine.mm */;
+		name = "JavascriptEngine.mm: 55";
+		rLen = 56;
+		rLoc = 1691;
+		rType = 0;
+		vrLen = 320;
+		vrLoc = 1528;
+	};
+	1D5628630E79E5CF005AAAA7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D5628360E79B9B6005AAAA7 /* JavascriptEngine.h */;
+		name = "JavascriptEngine.h: 18";
+		rLen = 41;
+		rLoc = 319;
+		rType = 0;
+		vrLen = 272;
+		vrLoc = 175;
+	};
+	1D5628640E79E5CF005AAAA7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D5628370E79B9B6005AAAA7 /* JavascriptEngine.mm */;
+		name = "JavascriptEngine.mm: 110";
+		rLen = 0;
+		rLoc = 2832;
+		rType = 0;
+		vrLen = 382;
+		vrLoc = 1309;
 	};
 	8DD76F960486AA7600D96B5E /* c8 */ = {
 		activeExec = 0;
