@@ -98,6 +98,10 @@
 			1D56271E0E795BFB005AAAA7 /* PBXTextBookmark */ = 1D56271E0E795BFB005AAAA7 /* PBXTextBookmark */;
 			1D5627260E795DF6005AAAA7 /* PBXTextBookmark */ = 1D5627260E795DF6005AAAA7 /* PBXTextBookmark */;
 			1D5627270E795DF6005AAAA7 /* PBXTextBookmark */ = 1D5627270E795DF6005AAAA7 /* PBXTextBookmark */;
+			1D5627370E7965EF005AAAA7 /* PBXTextBookmark */ = 1D5627370E7965EF005AAAA7 /* PBXTextBookmark */;
+			1D5627380E7965EF005AAAA7 /* PBXTextBookmark */ = 1D5627380E7965EF005AAAA7 /* PBXTextBookmark */;
+			1D5627520E79698E005AAAA7 /* PBXTextBookmark */ = 1D5627520E79698E005AAAA7 /* PBXTextBookmark */;
+			1D5627530E79698E005AAAA7 /* PBXTextBookmark */ = 1D5627530E79698E005AAAA7 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 1D0EECDE0E6F4F3A003A895A /* Source Control */;
 		userBuildSettings = {
@@ -260,6 +264,66 @@
 		rType = 0;
 		vrLen = 423;
 		vrLoc = 2326;
+	};
+	1D5627350E7965EE005AAAA7 /* v8_objc_bridge.mm */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.objcpp;
+		name = v8_objc_bridge.mm;
+		path = /Users/ghansard/Projects/c8/v8_objc_bridge.mm;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {439, 2702}}";
+			sepNavSelRange = "{6973, 0}";
+			sepNavVisRange = "{5495, 491}";
+		};
+	};
+	1D5627370E7965EF005AAAA7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: 'CallObjCInstanceMethod' was not declared in this scope";
+		fRef = 1D56270C0E795A77005AAAA7 /* v8_objc_bridge.mm */;
+		rLen = 1;
+		rLoc = 137;
+		rType = 1;
+	};
+	1D5627380E7965EF005AAAA7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D5627350E7965EE005AAAA7 /* v8_objc_bridge.mm */;
+		name = "v8_objc_bridge.mm: 194";
+		rLen = 0;
+		rLoc = 6693;
+		rType = 0;
+		vrLen = 491;
+		vrLoc = 5495;
+	};
+	1D5627500E79698D005AAAA7 /* v8_objc_bridge.mm */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.objcpp;
+		name = v8_objc_bridge.mm;
+		path = /Users/ghansard/Projects/c8/v8_objc_bridge.mm;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {439, 2716}}";
+			sepNavSelRange = "{6645, 0}";
+			sepNavVisRange = "{2922, 322}";
+		};
+	};
+	1D5627520E79698E005AAAA7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: conversion from 'v8::Local<v8::Value>' to non-scalar type 'v8::Value' requested";
+		fRef = 1D5627350E7965EE005AAAA7 /* v8_objc_bridge.mm */;
+		rLen = 1;
+		rLoc = 53;
+		rType = 1;
+	};
+	1D5627530E79698E005AAAA7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D5627500E79698D005AAAA7 /* v8_objc_bridge.mm */;
+		name = "v8_objc_bridge.mm: 185";
+		rLen = 0;
+		rLoc = 6645;
+		rType = 0;
+		vrLen = 322;
+		vrLoc = 2922;
 	};
 	8DD76F960486AA7600D96B5E /* c8 */ = {
 		activeExec = 0;
