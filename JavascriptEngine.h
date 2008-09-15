@@ -9,13 +9,12 @@
 #import <Cocoa/Cocoa.h>
 
 #import "NSObject+bridge.h"
+#import "v8_objc_bridge.h"
 #import "JSObjects.h"
 
 #include "v8.h"
 
 @interface JavascriptEngine : NSObject {
-	v8::Handle<v8::Context> *_context;
-	v8::Handle<v8::ObjectTemplate> *_global;
 }
 
 + (id)engine;
@@ -27,14 +26,12 @@
 #pragma mark Getters/Setters
 
 - (v8::Handle<v8::Context>)context;
-- (void)setContext:(v8::Handle<v8::Context>)newContext;
-
-- (v8::Handle<v8::ObjectTemplate>)global;
-- (void)setGlobal:(v8::Handle<v8::ObjectTemplate>)newGlobal;
+- (v8::Persistent<v8::ObjectTemplate>)global;
 
 @end
 
-v8::Handle<v8::Value> JSRunFile(v8::String::AsciiValue filename);
 v8::Handle<v8::Value> JSImport(const v8::Arguments& args);
 v8::Handle<v8::Value> JSPrint(const v8::Arguments& args);
 v8::Handle<v8::Value> JSExecuteCode(v8::Local<v8::String> code);
+v8::Handle<v8::Value> JSRunFile(v8::String::AsciiValue filename);
+void JSThrowError(v8::Handle<v8::Value> error);

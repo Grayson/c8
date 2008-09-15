@@ -205,6 +205,7 @@ id ConvertV8ValueToObjCObject(v8::Local<v8::Value> v8Obj) {
 		return [JSFunction wrapperWithFunction:func receiver:v8Obj->ToObject()];
 	}
 	else if (v8Obj->IsExternal()) {
+		NSLog(@"Found an external");
 		// Wrap external?
 	}
 	return nil;

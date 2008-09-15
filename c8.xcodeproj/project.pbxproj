@@ -13,6 +13,13 @@
 		1D0EEDB60E702964003A895A /* NSObject+bridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0EEDB50E702964003A895A /* NSObject+bridge.m */; };
 		1D5627EB0E799EDB005AAAA7 /* JSObjects.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D5627EA0E799EDB005AAAA7 /* JSObjects.mm */; };
 		1D5628380E79B9B6005AAAA7 /* JavascriptEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D5628370E79B9B6005AAAA7 /* JavascriptEngine.mm */; };
+		1D5628920E79E8A7005AAAA7 /* EmbedTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D5628910E79E8A7005AAAA7 /* EmbedTest.mm */; };
+		1D56289B0E79E970005AAAA7 /* v8_objc_bridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D0EED570E70262C003A895A /* v8_objc_bridge.mm */; };
+		1D56289C0E79E970005AAAA7 /* NSObject+bridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0EEDB50E702964003A895A /* NSObject+bridge.m */; };
+		1D56289D0E79E970005AAAA7 /* JSObjects.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D5627EA0E799EDB005AAAA7 /* JSObjects.mm */; };
+		1D56291B0E79E986005AAAA7 /* libv8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0EED470E70215F003A895A /* libv8.a */; };
+		1D56291C0E79E986005AAAA7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
+		1D5629220E79EA42005AAAA7 /* JavascriptEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D5628370E79B9B6005AAAA7 /* JavascriptEngine.mm */; };
 		8DD76F9A0486AA7600D96B5E /* c8.mm in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* c8.mm */; settings = {ATTRIBUTES = (); }; };
 		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
 		8DD76F9F0486AA7600D96B5E /* c8.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* c8.1 */; };
@@ -46,12 +53,23 @@
 		1D5627EA0E799EDB005AAAA7 /* JSObjects.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JSObjects.mm; sourceTree = "<group>"; };
 		1D5628360E79B9B6005AAAA7 /* JavascriptEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JavascriptEngine.h; sourceTree = "<group>"; };
 		1D5628370E79B9B6005AAAA7 /* JavascriptEngine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JavascriptEngine.mm; sourceTree = "<group>"; };
+		1D5628870E79E857005AAAA7 /* EmbedTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = EmbedTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D5628910E79E8A7005AAAA7 /* EmbedTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EmbedTest.mm; sourceTree = "<group>"; };
 		32A70AAB03705E1F00C91783 /* c8_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = c8_Prefix.pch; sourceTree = "<group>"; };
 		8DD76FA10486AA7600D96B5E /* c8 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = c8; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6859EA3029092ED04C91782 /* c8.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = c8.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1D5628850E79E857005AAAA7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D56291B0E79E986005AAAA7 /* libv8.a in Frameworks */,
+				1D56291C0E79E986005AAAA7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DD76F9B0486AA7600D96B5E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -67,7 +85,9 @@
 		08FB7794FE84155DC02AAC07 /* c8 */ = {
 			isa = PBXGroup;
 			children = (
-				08FB7795FE84155DC02AAC07 /* Source */,
+				1D5628810E79E7D7005AAAA7 /* EmbedTest */,
+				1D56287F0E79E7A4005AAAA7 /* c8Shell */,
+				08FB7795FE84155DC02AAC07 /* Shared */,
 				32A70AAB03705E1F00C91783 /* c8_Prefix.pch */,
 				C6859EA2029092E104C91782 /* Documentation */,
 				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
@@ -76,23 +96,18 @@
 			name = c8;
 			sourceTree = "<group>";
 		};
-		08FB7795FE84155DC02AAC07 /* Source */ = {
+		08FB7795FE84155DC02AAC07 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
 				1D0EED280E702081003A895A /* v8.h */,
-				08FB7796FE84155DC02AAC07 /* c8.mm */,
-				1D0EECE20E6F4FB9003A895A /* v8shell.h */,
-				1D0EECE30E6F4FB9003A895A /* v8shell.cpp */,
 				1D0EED560E70262C003A895A /* v8_objc_bridge.h */,
 				1D0EED570E70262C003A895A /* v8_objc_bridge.mm */,
 				1D0EEDB40E702964003A895A /* NSObject+bridge.h */,
 				1D0EEDB50E702964003A895A /* NSObject+bridge.m */,
 				1D5627E90E799EDB005AAAA7 /* JSObjects.h */,
 				1D5627EA0E799EDB005AAAA7 /* JSObjects.mm */,
-				1D5628360E79B9B6005AAAA7 /* JavascriptEngine.h */,
-				1D5628370E79B9B6005AAAA7 /* JavascriptEngine.mm */,
 			);
-			name = Source;
+			name = Shared;
 			sourceTree = "<group>";
 		};
 		08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */ = {
@@ -108,8 +123,29 @@
 			isa = PBXGroup;
 			children = (
 				8DD76FA10486AA7600D96B5E /* c8 */,
+				1D5628870E79E857005AAAA7 /* EmbedTest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		1D56287F0E79E7A4005AAAA7 /* c8Shell */ = {
+			isa = PBXGroup;
+			children = (
+				08FB7796FE84155DC02AAC07 /* c8.mm */,
+				1D0EECE20E6F4FB9003A895A /* v8shell.h */,
+				1D0EECE30E6F4FB9003A895A /* v8shell.cpp */,
+			);
+			name = c8Shell;
+			sourceTree = "<group>";
+		};
+		1D5628810E79E7D7005AAAA7 /* EmbedTest */ = {
+			isa = PBXGroup;
+			children = (
+				1D5628360E79B9B6005AAAA7 /* JavascriptEngine.h */,
+				1D5628370E79B9B6005AAAA7 /* JavascriptEngine.mm */,
+				1D5628910E79E8A7005AAAA7 /* EmbedTest.mm */,
+			);
+			name = EmbedTest;
 			sourceTree = "<group>";
 		};
 		C6859EA2029092E104C91782 /* Documentation */ = {
@@ -123,6 +159,22 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1D5628860E79E857005AAAA7 /* EmbedTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D56288E0E79E871005AAAA7 /* Build configuration list for PBXNativeTarget "EmbedTest" */;
+			buildPhases = (
+				1D5628840E79E857005AAAA7 /* Sources */,
+				1D5628850E79E857005AAAA7 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EmbedTest;
+			productName = EmbedTest;
+			productReference = 1D5628870E79E857005AAAA7 /* EmbedTest */;
+			productType = "com.apple.product-type.tool";
+		};
 		8DD76F960486AA7600D96B5E /* c8 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB927408733DD40010E9CD /* Build configuration list for PBXNativeTarget "c8" */;
@@ -154,11 +206,24 @@
 			projectRoot = "";
 			targets = (
 				8DD76F960486AA7600D96B5E /* c8 */,
+				1D5628860E79E857005AAAA7 /* EmbedTest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1D5628840E79E857005AAAA7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D5629220E79EA42005AAAA7 /* JavascriptEngine.mm in Sources */,
+				1D56289B0E79E970005AAAA7 /* v8_objc_bridge.mm in Sources */,
+				1D56289C0E79E970005AAAA7 /* NSObject+bridge.m in Sources */,
+				1D56289D0E79E970005AAAA7 /* JSObjects.mm in Sources */,
+				1D5628920E79E8A7005AAAA7 /* EmbedTest.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DD76F990486AA7600D96B5E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -175,6 +240,46 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		1D5628890E79E859005AAAA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Programming examples/v8-read-only\"",
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = EmbedTest;
+			};
+			name = Debug;
+		};
+		1D56288A0E79E859005AAAA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Programming examples/v8-read-only\"",
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = EmbedTest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		1DEB927508733DD40010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -241,6 +346,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1D56288E0E79E871005AAAA7 /* Build configuration list for PBXNativeTarget "EmbedTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D5628890E79E859005AAAA7 /* Debug */,
+				1D56288A0E79E859005AAAA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1DEB927408733DD40010E9CD /* Build configuration list for PBXNativeTarget "c8" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
